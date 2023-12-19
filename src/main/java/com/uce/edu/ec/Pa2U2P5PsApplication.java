@@ -1,20 +1,24 @@
 package com.uce.edu.ec;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.uce.edu.ec.repository.modelo.Alumno;
-import com.uce.edu.ec.service.IAlumnoService;
-import com.uce.edu.ec.service.IEstudianteService;
+import com.uce.edu.ec.repository.modelo.Ciudadano;
+import com.uce.edu.ec.repository.modelo.Empleado;
+import com.uce.edu.ec.service.ICiudadanoService;
+import com.uce.edu.ec.service.IEmpleadoService;
 
 @SpringBootApplication
 public class Pa2U2P5PsApplication implements CommandLineRunner {
 	@Autowired
-	private IEstudianteService estudianteService;
+	private IEmpleadoService empleadoService;
 	@Autowired
-	private IAlumnoService alumnoService;
+	private ICiudadanoService ciudadanoService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P5PsApplication.class, args);
@@ -23,34 +27,17 @@ public class Pa2U2P5PsApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		/*
-		 * Estudiante estu = new Estudiante(); estu.setApellido("Simbana");
-		 * estu.setCedula("1234"); estu.setFechaNacimiento(LocalDateTime.of(1, 1, 1, 1,
-		 * 1)); estu.setNombre("Pablo");
-		 * 
-		 * this.estudianteService.guardar(estu);
-		 */
-		/*
-		 * Estudiante buscar = this.estudianteService.buscar(19);
-		 * buscar.setApellido("Simbaña Pulupa");
-		 * this.estudianteService.actualizar(buscar); System.out.println(buscar); /* /*
-		 * buscar.setNombre("Pablo Fernando --");
-		 * this.estudianteService.actualizar(buscar);
-		 */
-
-		// this.estudianteService.eliminar(17);
-
-		Alumno alum = new Alumno();
-		alum.setNombre("Fernando Pulupa");
-
-		this.alumnoService.guardar(alum);
-		Alumno alum1 = this.alumnoService.buscar(2);
-		alum1.setNombre("ADA");
-		this.alumnoService.actualizar(alum1);
-		System.out.println(alum1);
-
-		this.alumnoService.eliminar(2);
-
+		Ciudadano ciud = new Ciudadano();
+		ciud.setApellido("Simbaña");
+		ciud.setNombre("Pablo");
+		Empleado empl = new Empleado();
+		empl.setFechaIngreso(LocalDateTime.now());
+		empl.setSalario(new BigDecimal(450));
+		//this.ciudadanoService.guardar(ciud);
+		//this.empleadoService.guardar(empl);
+		Ciudadano ciud1 = this.ciudadanoService.buscar(1);
+		empl.setCiudadano(ciud1);
+		this.empleadoService.guardar(empl);
 	}
 
 }
