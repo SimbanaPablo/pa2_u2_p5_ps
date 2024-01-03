@@ -3,6 +3,7 @@ package com.uce.edu.ec.repository.modelo;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,18 +22,18 @@ public class Empleado {
 	@SequenceGenerator(name = "seq_empleado", sequenceName = "seq_empleado", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_empleado")
 	private Integer id;
-	
+
 	@Column(name = "empl_salario")
 	private BigDecimal salario;
-	
+
 	@Column(name = "empl_fecha_ingreso")
 	private LocalDateTime fechaIngreso;
-	
-	@OneToOne
+
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "empl_id_ciudadano")
 	private Ciudadano ciudadano;
-	
-	//SET y GET 
+
+	// SET y GET
 	public Integer getId() {
 		return id;
 	}
@@ -56,6 +57,7 @@ public class Empleado {
 	public void setFechaIngreso(LocalDateTime fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
+
 	public Ciudadano getCiudadano() {
 		return ciudadano;
 	}
