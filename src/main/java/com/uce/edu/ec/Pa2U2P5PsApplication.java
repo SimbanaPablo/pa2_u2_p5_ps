@@ -10,12 +10,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.uce.edu.ec.repository.modelo.Habitacion;
 import com.uce.edu.ec.repository.modelo.Hotel;
+import com.uce.edu.ec.service.IHabitacionService;
 import com.uce.edu.ec.service.IHotelService;
 
 @SpringBootApplication
 public class Pa2U2P5PsApplication implements CommandLineRunner {
 	@Autowired
 	private IHotelService hotelService;
+
+	@Autowired
+	private IHabitacionService habitacionService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P5PsApplication.class, args);
@@ -25,8 +29,8 @@ public class Pa2U2P5PsApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		Hotel hote = new Hotel();
-		hote.setNombre("HOSTAL");
-		hote.setDireccion("Quito");
+		hote.setNombre("HOSTAL EJ");
+		hote.setDireccion("Cuenca");
 		List<Habitacion> habitaciones = new ArrayList<Habitacion>();
 
 		Habitacion habi = new Habitacion();
@@ -44,6 +48,17 @@ public class Pa2U2P5PsApplication implements CommandLineRunner {
 		hote.setHabitaciones(habitaciones);
 
 		this.hotelService.guardar(hote);
+
+		Hotel hoteB = this.hotelService.buscar(1);
+		hoteB.setDireccion("Loja");
+		this.hotelService.actualizar(hoteB);
+
+		this.hotelService.eliminar(2);
+
+		Habitacion habiB = this.habitacionService.buscar(2);
+		habiB.setClase("VIP");
+		this.habitacionService.actualizar(habiB);
+		this.hotelService.eliminar(1);
 
 	}
 
