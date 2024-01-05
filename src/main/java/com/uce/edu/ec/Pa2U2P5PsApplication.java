@@ -30,14 +30,28 @@ public class Pa2U2P5PsApplication implements CommandLineRunner {
 		Ciudadano ciud = new Ciudadano();
 		ciud.setApellido("Simbaña");
 		ciud.setNombre("Pablo");
+		this.ciudadanoService.guardar(ciud);
+
+		Ciudadano ciudB = this.ciudadanoService.buscar(15);
+		ciudB.setNombre("Fernando");
+		this.ciudadanoService.actualizar(ciudB);
+//		this.ciudadanoService.eliminar(1);
+		
+		Ciudadano ciud1 = this.ciudadanoService.buscar(16);
+		
 		Empleado empl = new Empleado();
 		empl.setFechaIngreso(LocalDateTime.now());
-		empl.setSalario(new BigDecimal(450));
-		//this.ciudadanoService.guardar(ciud);
-		//this.empleadoService.guardar(empl);
-		Ciudadano ciud1 = this.ciudadanoService.buscar(1);
+		empl.setSalario(new BigDecimal(465));
 		empl.setCiudadano(ciud1);
+
 		this.empleadoService.guardar(empl);
+		
+		
+		Empleado emplB = this.empleadoService.buscar(12);
+		emplB.setSalario(new BigDecimal(500));
+		this.empleadoService.actualizar(emplB);
+		this.empleadoService.eliminar(12);
+		
 	}
 
 }

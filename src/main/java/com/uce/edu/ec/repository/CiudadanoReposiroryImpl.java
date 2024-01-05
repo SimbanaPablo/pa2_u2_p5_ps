@@ -26,4 +26,16 @@ public class CiudadanoReposiroryImpl implements ICiudadanoRepository {
 		return this.entityManager.find(Ciudadano.class, id);
 	}
 
+	@Override
+	public void actualizar(Ciudadano ciudadano) {
+		// TODO Auto-generated method stub
+		this.entityManager.merge(ciudadano);
+	}
+
+	@Override
+	public void eliminar(Integer id) {
+		// TODO Auto-generated method stub
+		this.entityManager.remove(this.seleccionar(id));
+	}
+
 }
