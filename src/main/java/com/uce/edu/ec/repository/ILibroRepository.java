@@ -1,4 +1,4 @@
-package com.uce.edu.ec.transferencia.repository;
+package com.uce.edu.ec.repository;
 
 import java.time.LocalDateTime;
 import java.util.List;

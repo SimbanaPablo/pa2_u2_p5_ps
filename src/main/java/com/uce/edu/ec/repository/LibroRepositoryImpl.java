@@ -1,4 +1,4 @@
-package com.uce.edu.ec.transferencia.repository;
+package com.uce.edu.ec.repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -38,7 +38,7 @@ public class LibroRepositoryImpl implements ILibroRepository {
 		// TODO Auto-generated method stub
 		// SQL: select * FROM libro l WHERE l.libr_titulo = ?
 		// JPQL: select l FROM libro l WHERE l.titulo = :nombre
-		Query myQuery = this.entityManager.createQuery("select l FROM libro l WHERE l.titulo = :nombre");
+		Query myQuery = this.entityManager.createQuery("select l FROM Libro l WHERE l.titulo = :nombre");
 		myQuery.setParameter("nombre", nombre);
 		return (Libro) myQuery.getSingleResult();
 	}
@@ -48,7 +48,7 @@ public class LibroRepositoryImpl implements ILibroRepository {
 		// TODO Auto-generated method stub
 		// SQL: SELECT * FROM libro l WHERE l.libr_fecha_publicacion >=: ?
 		// JPQL:SELECT l FROM libro l WHERE l.fechaPublicacion >=: fecha
-		Query my = this.entityManager.createQuery("SELECT l FROM libro l WHERE l.fechaPublicacion >=: fecha");
+		Query my = this.entityManager.createQuery("SELECT l FROM Libro l WHERE l.fechaPublicacion >=: fecha");
 		my.setParameter("fecha", fechaPublicacion);
 		return (List<Libro>) my.getResultList();
 	}
@@ -56,7 +56,7 @@ public class LibroRepositoryImpl implements ILibroRepository {
 	@Override
 	public Libro seleccionarPorTitulo(String titulo) {
 		// TODO Auto-generated method stub
-		TypedQuery<Libro> myQuery = this.entityManager.createQuery("\"SELECT l FROM libro l WHERE l.titulo >=: titulo",
+		TypedQuery<Libro> myQuery = this.entityManager.createQuery("SELECT l FROM Libro l WHERE l.titulo >=: titulo",
 				Libro.class);
 		myQuery.setParameter("titulo", titulo);
 		return myQuery.getSingleResult();
@@ -66,7 +66,7 @@ public class LibroRepositoryImpl implements ILibroRepository {
 	public List<Libro> seleccionarPorFecha(LocalDateTime fechaPublicacion) {
 		// TODO Auto-generated method stub
 		TypedQuery<Libro> myQuery = this.entityManager
-				.createQuery("SELECT l FROM libro l WHERE l.fechaPublicacion >=: fecha", Libro.class);
+				.createQuery("SELECT l FROM Libro l WHERE l.fechaPublicacion >=: fecha", Libro.class);
 		myQuery.setParameter("fecha", fechaPublicacion);
 		return myQuery.getResultList();
 	}
@@ -84,7 +84,7 @@ public class LibroRepositoryImpl implements ILibroRepository {
 		// TODO Auto-generated method stub
 		TypedQuery<Libro> myQuery = this.entityManager.createNamedQuery("Libro.queryBuscarPorFecha", Libro.class);
 		myQuery.setParameter("fecha", fechaPublicacion);
-		return null;
+		return myQuery.getResultList();
 	}
 
 }

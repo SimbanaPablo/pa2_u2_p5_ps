@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.uce.edu.ec.repository.ILibroRepository;
 import com.uce.edu.ec.repository.modelo.Libro;
 import com.uce.edu.ec.repository.modelo.Libro2;
-import com.uce.edu.ec.transferencia.repository.ILibroRepository;
 
 @Service
 public class LibroServiceImpl implements ILibroService {

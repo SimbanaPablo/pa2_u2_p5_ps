@@ -26,6 +26,9 @@ public class Pa2U2P5PsApplication implements CommandLineRunner {
 		// TODO Auto-generated method stub
 		System.out.println("Query");
 
+		Libro libr = this.libroService.buscarPorNombre("el mejor libro");
+		System.out.println(libr);
+
 		List<Libro> lista = this.libroService.buscarPorFecha(LocalDateTime.of(2023, 1, 1, 7, 15));
 		for (Libro libro : lista) {
 			System.out.println(libro);
@@ -33,7 +36,7 @@ public class Pa2U2P5PsApplication implements CommandLineRunner {
 
 		System.out.println("TypedQuery");
 
-		Libro l1 = this.libroService.buscarPorTitulo("Programacion web");
+		Libro l1 = this.libroService.buscarPorTitulo("Programcion Web");
 		System.out.println(l1);
 
 		List<Libro> lista2 = this.libroService.buscarPorFechaPubli(LocalDateTime.of(2023, 1, 1, 7, 15));
@@ -42,7 +45,7 @@ public class Pa2U2P5PsApplication implements CommandLineRunner {
 		}
 		System.out.println("Named Query");
 
-		Libro l2 = this.libroService.buscarPorTituloNamed("Programacion Avanzada 2");
+		Libro l2 = this.libroService.buscarPorTituloNamed("Programcion II");
 		System.out.println(l2);
 
 		List<Libro> lista3 = this.libroService.buscarPorFechaPubliNamed(LocalDateTime.of(2023, 1, 1, 7, 15));
