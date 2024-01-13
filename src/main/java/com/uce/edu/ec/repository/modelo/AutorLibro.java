@@ -20,7 +20,7 @@ public class AutorLibro {
 	@Column(name = "auli_id")
 	private Integer id;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "auli_id_autor")
 	private Autor2 autor2;
 	

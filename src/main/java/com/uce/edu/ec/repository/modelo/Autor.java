@@ -25,7 +25,7 @@ public class Autor {
 	private String nombre;
 	@Column(name = "auto_nacionalidad")
 	private String nacionalidad;
-	@ManyToMany(mappedBy = "autores",cascade = CascadeType.ALL )
+	@ManyToMany(mappedBy = "autores",cascade =  CascadeType.ALL)
 	private Set<Libro> libros;
 
 	public Integer getId() {
