@@ -33,6 +33,11 @@ public class Empleado {
 	@JoinColumn(name = "empl_id_ciudadano")
 	private Ciudadano ciudadano;
 
+	@Override
+	public String toString() {
+		return "Empleado [id=" + id + ", salario=" + salario + ", fechaIngreso=" + fechaIngreso + "]";
+	}
+
 	// SET y GET
 	public Integer getId() {
 		return id;
@@ -65,4 +70,5 @@ public class Empleado {
 	public void setCiudadano(Ciudadano ciudadano) {
 		this.ciudadano = ciudadano;
 	}
+
 }
