@@ -24,11 +24,62 @@ public class Hotel {
 	@Column(name = "hote_nombre")
 	private String nombre;
 
+	@Column(name = "hote_codigo")
+	private String codigo;
+
 	@Column(name = "hote_direccion")
 	private String direccion;
 
-	@OneToMany(mappedBy = "hotel",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
 	private List<Habitacion> habitaciones;
+
+	@Column(name = "hote_conexion_wifi")
+	private String conexionWifi;
+
+	@Column(name = "hote_calificacion")
+	private Float calificacion;
+
+	@Column(name = "hote_nombre_dueño")
+	private String nombreDueño;
+
+	@Override
+	public String toString() {
+		return "Hotel [id=" + id + ", nombre=" + nombre + ", codigo=" + codigo + ", direccion=" + direccion
+				+ ", conexionWifi=" + conexionWifi + ", calificacion=" + calificacion + ", nombreDueño=" + nombreDueño
+				+ "]";
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getNombreDueño() {
+		return nombreDueño;
+	}
+
+	public void setNombreDueño(String nombreDueño) {
+		this.nombreDueño = nombreDueño;
+	}
+
+	public Float getCalificacion() {
+		return calificacion;
+	}
+
+	public void setCalificacion(Float calificacion) {
+		this.calificacion = calificacion;
+	}
+
+	public String getConexionWifi() {
+		return conexionWifi;
+	}
+
+	public void setConexionWifi(String conexionWifi) {
+		this.conexionWifi = conexionWifi;
+	}
 
 	public Integer getId() {
 		return id;
@@ -53,7 +104,7 @@ public class Hotel {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	
+
 	public List<Habitacion> getHabitaciones() {
 		return habitaciones;
 	}

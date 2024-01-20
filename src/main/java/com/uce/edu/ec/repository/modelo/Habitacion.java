@@ -24,12 +24,40 @@ public class Habitacion {
 	@Column(name = "habi_numero")
 	private String numero;
 
+	@Column(name = "habi_codigo")
+	private String codigo;
+
 	@Column(name = "habi_clase")
 	private String clase;
-	
+
+	@Column(name = "habi_numero_camas")
+	private String nCamas;
+
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "habi_id_hotel")
 	private Hotel hotel;
+
+	@Override
+	public String toString() {
+		return "Habitacion [id=" + id + ", numero=" + numero + ", codigo=" + codigo + ", clase=" + clase + ", nCamas="
+				+ nCamas + "]";
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getnCamas() {
+		return nCamas;
+	}
+
+	public void setnCamas(String nCamas) {
+		this.nCamas = nCamas;
+	}
 
 	public Integer getId() {
 		return id;
@@ -54,6 +82,7 @@ public class Habitacion {
 	public void setClase(String clase) {
 		this.clase = clase;
 	}
+
 	public Hotel getHotel() {
 		return hotel;
 	}

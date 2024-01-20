@@ -37,7 +37,8 @@ public class CiudadanoReposiroryImpl implements ICiudadanoRepository {
 		tq.setParameter("cedula", cedula);
 		return tq.getSingleResult();
 	}
-
+	
+	
 	@Override
 	public Ciudadano seleccionarPorCedulaCiu(String cedula) {
 		// TODO Auto-generated method stub
