@@ -29,11 +29,29 @@ public class CiudadanoServiceImpl implements ICiudadanoService {
 		// TODO Auto-generated method stub
 		return this.ciudadanoRepository.seleccionarPorCedula(cedula);
 	}
-	
+
 	@Override
 	public Ciudadano buscarPorCedulaCiu(String cedula) {
 		// TODO Auto-generated method stub
 		return this.ciudadanoRepository.seleccionarPorCedulaCiu(cedula);
+	}
+
+	@Override
+	public Ciudadano buscarPorCriteria(String nombre, String apellido, String cedula) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepository.seleccionarPorCriteria(nombre, apellido, cedula);
+	}
+
+	@Override
+	public Ciudadano buscarApellido(String apellido) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepository.seleccionarApellido(apellido);
+	}
+
+	@Override
+	public Ciudadano buscarPorCriteriaAndOr(String nombre, String apellido, String cedula) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepository.seleccionarPorCriteriaAndOr(nombre, apellido, cedula);
 	}
 
 }
