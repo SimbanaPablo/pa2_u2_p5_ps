@@ -17,4 +17,16 @@ public interface ICiudadanoService {
 	public Ciudadano buscarPorCriteria(String nombre, String apellido, String cedula);
 
 	public Ciudadano buscarPorCriteriaAndOr(String nombre, String apellido, String cedula);
+
+	public Ciudadano buscarPorCriteriaNombres(String primerNombre, String segundoNombre);
+
+	public Ciudadano buscarPorCriteriaApellidos(String primerApellido, String segundoApellido);
+
+	public Ciudadano buscarPorCriteriaHombre(String genero, String apellido, String nombre);
+
+	public Ciudadano buscarPorCriteriaMujer(String genero, String apellido, String nombre);
+
+	public Ciudadano buscarPorCriteriaCasado(String estadoCivil, String genero, String cedula);
+
+	public Ciudadano buscarPorCriteriaSoltero(String estadoCivil, String genero, String cedula);
 }

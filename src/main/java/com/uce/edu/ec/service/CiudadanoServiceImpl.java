@@ -54,4 +54,40 @@ public class CiudadanoServiceImpl implements ICiudadanoService {
 		return this.ciudadanoRepository.seleccionarPorCriteriaAndOr(nombre, apellido, cedula);
 	}
 
+	@Override
+	public Ciudadano buscarPorCriteriaNombres(String primerNombre, String segundoNombre) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepository.seleccionarPorCriteriaNombres(primerNombre, segundoNombre);
+	}
+
+	@Override
+	public Ciudadano buscarPorCriteriaApellidos(String primerApellido, String segundoApellido) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepository.seleccionarPorCriteriaApellidos(primerApellido, segundoApellido);
+	}
+
+	@Override
+	public Ciudadano buscarPorCriteriaHombre(String genero, String apellido, String nombre) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepository.seleccionarPorCriteriaHombre(genero, apellido, nombre);
+	}
+
+	@Override
+	public Ciudadano buscarPorCriteriaMujer(String genero, String apellido, String nombre) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepository.seleccionarPorCriteriaMujer(genero, apellido, nombre);
+	}
+
+	@Override
+	public Ciudadano buscarPorCriteriaCasado(String estadoCivil, String genero, String cedula) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepository.seleccionarPorCriteriaCasado(estadoCivil, genero, cedula);
+	}
+
+	@Override
+	public Ciudadano buscarPorCriteriaSoltero(String estadoCivil, String genero, String cedula) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepository.seleccionarPorCriteriaSoltero(estadoCivil, genero, cedula);
+	}
+
 }

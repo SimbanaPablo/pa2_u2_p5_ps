@@ -25,6 +25,18 @@ public class Ciudadano {
 	@Column(name = "ciud_apellido")
 	private String apellido;
 
+	@Column(name = "ciud_segundo_apellido")
+	private String segundoApellido;
+
+	@Column(name = "ciud_segundo_nombre")
+	private String segundoNombre;
+
+	@Column(name = "cid_genero")
+	private String genero;
+
+	@Column(name = "cid_estado_civil")
+	private String estadoCivil;
+
 	@OneToOne(mappedBy = "ciudadano", cascade = CascadeType.ALL)
 	private Empleado empleado;
 
@@ -33,7 +45,41 @@ public class Ciudadano {
 
 	@Override
 	public String toString() {
-		return "Ciudadano [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + "]";
+		return "Ciudadano [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", segundoApellido="
+				+ segundoApellido + ", segundoNombre=" + segundoNombre + ", genero=" + genero + ", estadoCivil="
+				+ estadoCivil + ", cedula=" + cedula + "]";
+	}
+
+	public String getSegundoNombre() {
+		return segundoNombre;
+	}
+
+	public void setSegundoNombre(String segundoNombre) {
+		this.segundoNombre = segundoNombre;
+	}
+
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+	public String getEstadoCivil() {
+		return estadoCivil;
+	}
+
+	public void setEstadoCivil(String estadoCivil) {
+		this.estadoCivil = estadoCivil;
+	}
+
+	public String getSegundoApellido() {
+		return segundoApellido;
+	}
+
+	public void setSegundoApellido(String segundoApellido) {
+		this.segundoApellido = segundoApellido;
 	}
 
 	public Integer getId() {

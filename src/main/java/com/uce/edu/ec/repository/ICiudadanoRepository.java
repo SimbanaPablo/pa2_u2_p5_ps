@@ -18,4 +18,16 @@ public interface ICiudadanoRepository {
 
 	public Ciudadano seleccionarPorCriteriaAndOr(String nombre, String apellido, String cedula);
 
+	public Ciudadano seleccionarPorCriteriaNombres(String primerNombre, String segundoNombre);
+
+	public Ciudadano seleccionarPorCriteriaApellidos(String primerApellido, String segundoApellido);
+
+	public Ciudadano seleccionarPorCriteriaHombre(String genero, String apellido, String nombre);
+
+	public Ciudadano seleccionarPorCriteriaMujer(String genero, String apellido, String nombre);
+
+	public Ciudadano seleccionarPorCriteriaCasado(String estadoCivil, String genero, String cedula);
+
+	public Ciudadano seleccionarPorCriteriaSoltero(String estadoCivil, String genero, String cedula);
+
 }
